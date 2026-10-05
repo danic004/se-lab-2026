@@ -14,6 +14,10 @@ public class TorpedoStore {
 
   private int torpedoCount = 0;
 
+  //Declaring the random generator at class level. Thus reducing the chance of Seed Collision in which case it would generate the same random if called in rapid succession
+  //Private so that it isn't accessible from other objects and final so that it can't be reassigned later down the road (generator = new Random()) - once again mitigating the chance of seed collision
+  private final Random generator = new Random();
+  
   public TorpedoStore(int numberOfTorpedos){
     this.torpedoCount = numberOfTorpedos;
 
@@ -36,7 +40,6 @@ public class TorpedoStore {
     boolean success = false;
 
     // simulate random overheating of the launcher bay which prevents firing
-    Random generator = new Random();
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
