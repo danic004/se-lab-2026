@@ -55,6 +55,10 @@ public class TorpedoStore {
     return success;
   }
 
+  public void asd(){
+    new IllegalArgumentException();
+  }
+
   public boolean isEmpty(){
     return this.torpedoCount <= 0;
   }
